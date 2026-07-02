@@ -83,6 +83,46 @@ body {
 }
 .progress-label { color: var(--muted); font-size: 13px; margin-top: 8px; text-align: center; }
 
+/* ===== كروت إجمالي كل بند ===== */
+.cat-section { margin-bottom: 34px; }
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: clamp(10px, 2vw, 14px);
+}
+.cat-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .18s, box-shadow .18s;
+}
+.cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.cat-top {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.cat-icon {
+  font-size: 22px; width: 42px; height: 42px; display: grid; place-items: center;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+}
+.cat-count {
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  background: var(--panel-2); border: 1px solid var(--line);
+  padding: 4px 10px; border-radius: 100px;
+}
+.cat-name { font-size: 15px; font-weight: 700; color: var(--text); }
+.cat-total { font-size: clamp(20px, 4vw, 24px); font-weight: 800; color: var(--brand); margin: 4px 0 10px; }
+.cat-bar {
+  height: 6px; background: #eef1f7; border-radius: 100px; overflow: hidden;
+}
+.cat-bar span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--brand), #ff9057);
+  border-radius: 100px;
+}
+.cat-pct { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
 /* ===== رؤوس الأقسام ===== */
 .section-head {
   display: flex; align-items: baseline; justify-content: space-between;
@@ -150,7 +190,7 @@ body {
 .lightbox {
   position: fixed; inset: 0; background: rgba(20, 28, 44, 0.72);
   display: none; align-items: center; justify-content: center;
-  z-index: 100; padding: 24px; backdrop-filter: blur(4px);
+  z-index: 100; padding: 24px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
 }
 .lightbox.open { display: flex; }
 .lightbox-figure { max-width: 460px; text-align: center; }
