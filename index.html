@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حسابات الأكاديمية — كشف التحويلات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- الهيدر -->
+    <header class="header">
+      <div class="header-title">
+        <h1>حسابات الأكاديمية</h1>
+        <p>كشف مفصّل بكل التحويلات مخصومة من الرصيد الرئيسي</p>
+      </div>
+      <span class="count-badge" id="countBadge">—</span>
+    </header>
+
+    <!-- بطاقات الملخص -->
+    <section class="cards">
+      <div class="card card-main">
+        <div class="card-label">الرصيد الرئيسي</div>
+        <div class="card-value" id="mainBalance">—</div>
+        <div class="card-unit">جنيه مصري</div>
+      </div>
+      <div class="card card-spent">
+        <div class="card-label">إجمالي المصروف</div>
+        <div class="card-value" id="totalSpent">—</div>
+        <div class="card-unit">جنيه مصري</div>
+      </div>
+      <div class="card card-remain">
+        <div class="card-label">الرصيد المتبقي</div>
+        <div class="card-value" id="remaining">—</div>
+        <div class="card-unit">جنيه مصري</div>
+      </div>
+    </section>
+
+    <!-- شريط النسبة -->
+    <section class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">—</div>
+    </section>
+
+    <!-- جدول التحويلات اللي معاها صور -->
+    <section class="table-section">
+      <div class="section-head">
+        <h2>التحويلات (بالصور والتواريخ)</h2>
+        <span class="section-total">الإجمالي: <b id="withImgTotal">—</b></span>
+      </div>
+      <div class="table-scroll">
+        <table class="tx-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>التاريخ</th>
+              <th>المبلغ</th>
+              <th>السبب</th>
+              <th>صورة التحويل</th>
+            </tr>
+          </thead>
+          <tbody id="txBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- التحويلات بدون صور -->
+    <section class="noimg-section">
+      <div class="section-head">
+        <h2>تحويلات بدون صور أو تواريخ</h2>
+        <span class="section-total">الإجمالي: <b id="noImgTotal">—</b></span>
+      </div>
+      <div class="noimg-list" id="noImgList"></div>
+    </section>
+
+    <footer class="footer">
+      <p>تم إعداد الكشف تلقائيًا من صور التحويلات · كل المبالغ بالجنيه المصري</p>
+    </footer>
+  </div>
+
+  <!-- نافذة عرض الصورة -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="صورة التحويل" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
