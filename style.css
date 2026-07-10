@@ -70,6 +70,13 @@ body {
 .card-remain .card-value { color: var(--green); }
 .card-unit { color: var(--muted); font-size: 12px; }
 
+/* كارتين إجمالي السحوبات */
+.cards-two { grid-template-columns: repeat(2, 1fr); margin-bottom: 30px; }
+.card-hafnawy::before { background: linear-gradient(90deg, #8b5cf6, #b794ff); }
+.card-sarhan::before  { background: linear-gradient(90deg, #e11d74, #ff6fa5); }
+.card-hafnawy .card-value { color: #8b5cf6; }
+.card-sarhan  .card-value { color: #e11d74; }
+
 /* ===== شريط النسبة ===== */
 .progress-wrap { margin-bottom: 30px; }
 .progress-bar {

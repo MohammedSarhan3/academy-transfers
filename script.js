@@ -70,6 +70,21 @@ document.getElementById("progressFill").style.width = spentPct + "%";
 document.getElementById("progressLabel").textContent =
   "تم صرف " + spentPct.toFixed(1) + "% من الرصيد";
 
+// ===== إجمالي السحوبات لكل شخص =====
+const allTx = [...transactions, ...noImageTransactions];
+const sumByCat = (cat) => {
+  const rows = allTx.filter((t) => t.cat === cat);
+  return { total: rows.reduce((s, t) => s + t.amount, 0), count: rows.length };
+};
+
+const hafnawy = sumByCat("سحب حفناوي");
+document.getElementById("totalHafnawy").textContent = fmt(hafnawy.total);
+document.getElementById("countHafnawy").textContent = hafnawy.count + " تحويل";
+
+const sarhan = sumByCat("سحب سرحان");
+document.getElementById("totalSarhan").textContent = fmt(sarhan.total);
+document.getElementById("countSarhan").textContent = sarhan.count + " تحويل";
+
 // ===== بناء جدول المعاملات اللي معاها صور =====
 const tbody = document.getElementById("txBody");
 transactions.forEach((t, i) => {
