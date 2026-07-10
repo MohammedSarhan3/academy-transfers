@@ -41,6 +41,7 @@ const noImageTransactions = [
   { amount: 10000, reason: "سحب حفناوي",       cat: "سحب حفناوي" },
   { amount: 7500,  reason: "سحب حفناوي",       cat: "سحب حفناوي" },
   { amount: 5000,  reason: "لله",             cat: "لله / صدقة" },
+  { amount: 1400,  reason: "اعلانات",          cat: "الإعلانات" },
 ];
 
 // ===== دوال مساعدة =====
