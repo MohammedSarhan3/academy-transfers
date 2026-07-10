@@ -43,26 +43,6 @@ const noImageTransactions = [
   { amount: 5000,  reason: "لله",             cat: "لله / صدقة" },
 ];
 
-// أيقونة لكل بند
-const catIcons = {
-  "الإعلانات": "📢",
-  "سحب سرحان": "💸",
-  "سحب سرحان وشيماء": "💸",
-  "سحب حفناوي": "💸",
-  "سحب عبد الله": "💸",
-  "شحن الرصيد": "📱",
-  "المونتاج": "🎬",
-  "المرتبات": "👥",
-  "منهج يوسف": "📚",
-  "د. ماجد": "🩺",
-  "الدومين": "🌐",
-  "نت الشقة": "🛜",
-  "واتساب API": "💬",
-  "تصوير العريش": "📸",
-  "تحويل للأزعر": "🔁",
-  "لله / صدقة": "🤲",
-};
-
 // ===== دوال مساعدة =====
 const fmt = (n) =>
   n.toLocaleString("en-US", { minimumFractionDigits: n % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 });
@@ -88,34 +68,6 @@ const spentPct = Math.min(100, (totalSpent / MAIN_BALANCE) * 100);
 document.getElementById("progressFill").style.width = spentPct + "%";
 document.getElementById("progressLabel").textContent =
   "تم صرف " + spentPct.toFixed(1) + "% من الرصيد";
-
-// ===== تجميع الإجماليات حسب البند =====
-const catMap = {};
-[...transactions, ...noImageTransactions].forEach((t) => {
-  const c = t.cat || t.reason;
-  if (!catMap[c]) catMap[c] = { name: c, total: 0, count: 0 };
-  catMap[c].total += t.amount;
-  catMap[c].count += 1;
-});
-const categories = Object.values(catMap).sort((a, b) => b.total - a.total);
-
-const catGrid = document.getElementById("catGrid");
-categories.forEach((c) => {
-  const pct = ((c.total / totalSpent) * 100).toFixed(1);
-  const div = document.createElement("div");
-  div.className = "cat-card";
-  div.innerHTML = `
-    <div class="cat-top">
-      <span class="cat-icon">${catIcons[c.name] || "🧾"}</span>
-      <span class="cat-count">${c.count} تحويل</span>
-    </div>
-    <div class="cat-name">${c.name}</div>
-    <div class="cat-total">${fmt(c.total)} <span class="egp">ج.م</span></div>
-    <div class="cat-bar"><span style="width:${pct}%"></span></div>
-    <div class="cat-pct">${pct}% من المصروف</div>`;
-  catGrid.appendChild(div);
-});
-document.getElementById("catCountLabel").textContent = categories.length + " بند";
 
 // ===== بناء جدول المعاملات اللي معاها صور =====
 const tbody = document.getElementById("txBody");
