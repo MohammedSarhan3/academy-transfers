@@ -38,7 +38,7 @@ const transactions = [
 const noImageTransactions = [
   { amount: 17000, reason: "سحب سرحان وشيماء", cat: "سحب سرحان وشيماء" },
   { amount: 10000, reason: "سحب حفناوي",       cat: "سحب حفناوي" },
-  { amount: 5000,  reason: "سحب حفناوي",       cat: "سحب حفناوي" },
+  { amount: 7500,  reason: "سحب حفناوي",       cat: "سحب حفناوي" },
   { amount: 5000,  reason: "لله",             cat: "لله / صدقة" },
 ];
 
