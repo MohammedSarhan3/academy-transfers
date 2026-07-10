@@ -36,7 +36,8 @@ const transactions = [
 
 // المعاملات اللي مالهاش صور ولا تاريخ (تتحط في الآخر)
 const noImageTransactions = [
-  { amount: 17000, reason: "سحب سرحان وشيماء", cat: "سحب سرحان وشيماء" },
+  { amount: 15000, reason: "سحب سرحان",        cat: "سحب سرحان" },
+  { amount: 2000,  reason: "سحب شيماء",        cat: "سحب شيماء" },
   { amount: 2500,  reason: "سحب سرحان",        cat: "سحب سرحان" },
   { amount: 10000, reason: "سحب حفناوي",       cat: "سحب حفناوي" },
   { amount: 7500,  reason: "سحب حفناوي",       cat: "سحب حفناوي" },
